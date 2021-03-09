@@ -24,6 +24,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.robotemi.sdk.Robot;
+
 public class MainActivity extends AppCompatActivity {
     private Context context;
     private BluetoothAdapter bluetoothAdapter;
@@ -103,6 +105,13 @@ public class MainActivity extends AppCompatActivity {
         init();
         initBluetooth();
         chatUtils = new ChatUtils(context, handler);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Robot robot = Robot.getInstance();
+        robot.hideTopBar();
     }
 
     private void init() {

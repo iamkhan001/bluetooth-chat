@@ -21,6 +21,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.robotemi.sdk.Robot;
+
 import java.util.Set;
 
 public class DeviceListActivity extends AppCompatActivity {
@@ -93,6 +95,13 @@ public class DeviceListActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Robot robot = Robot.getInstance();
+        robot.hideTopBar();
     }
 
     private BroadcastReceiver bluetoothDeviceListener = new BroadcastReceiver() {

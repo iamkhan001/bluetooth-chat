@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.bluechat"
-        minSdkVersion 26
+        minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -26,6 +26,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        maven { url "http://dl.bintray.com/webactive/maven"  }
+        maven {url 'https://csspeechstorage.blob.core.windows.net/maven/'}
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -33,6 +44,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation(name:'temi_sdk', ext:'aar')
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
